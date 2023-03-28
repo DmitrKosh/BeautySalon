@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Salon2.Views.AboutPage"
+             xmlns:vm="clr-namespace:Salon2.ViewModels"
+             Title="{Binding Title}"
+             BackgroundColor="#004D51">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+             <Style x:Key="FrameEmployee" TargetType="Frame">
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="BackgroundColor" Value="#3cbf8e"/>
+                <Setter Property="Margin" Value="30,0,30,15"/>
+            </Style>
+            <Style x:Key="ImageEmployee" TargetType="Image">
+                <Setter Property="Margin" Value="5,20"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon.png"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--#region картинка с колибри-->
+       
+        <!--#endregion-->
+        <ScrollView Grid.Row="1">
+            <StackLayout BackgroundColor="#004D51" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                
+                <Label Margin="0,20" TextColor="White" Text="Салон-красоты &quot;Колибри&quot;" HorizontalTextAlignment="Center" FontSize="Title"/>
+
+                <Label TextColor="White" Text="Наши мастера — знатоки своего дела. Постоянные стажировки и повышение квалификации — неотъемлемая 
+                       составляющая нашего салона. У каждого мастера свой стиль, свой почерк. Из каталога наших работ Вы всегда подберете себе именно 
+                       то, что подходит именно Вам. По желанию воплотим Ваши задумки в реальность." 
+                       FontSize="16"/>
+
+                <!--#region -->
+
+
+                <Button Command="{Binding BookingServicesCommand}" BorderWidth="1.4" CornerRadius="5" BorderColor="Black" BackgroundColor="#3cbf8e" Margin="40" Text="Записаться на услугу"></Button>
+
+                <Frame Padding="0" BorderColor="Black" BackgroundColor="Yellow" CornerRadius="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Margin="0,10,0,15" TextColor="Black" Text="Работники нашего салона" HorizontalTextAlignment="Center" FontSize="23"/>
+                        
+                    <Frame Grid.Row="1" Style="{StaticResource FrameEmployee}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                            <Image Style="{StaticResource ImageEmployee}"  Source="icon_employee.png"/>
+                        <Label Grid.Row="1" Margin="0,0,0,0" TextColor="Black" Text="Петрова Анна" HorizontalTextAlignment="Center" FontSize="20"/>
+                    </Grid>
+                </Frame>
+
+                    <Frame Grid.Row="2" Style="{StaticResource FrameEmployee}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                            <Image Style="{StaticResource ImageEmployee}"  Source="icon_employee.png"/>
+                        <Label Grid.Row="1" Margin="0,0,0,0" TextColor="Black" Text="Шибзухова Евгения" HorizontalTextAlignment="Center" FontSize="20"/>
+                    </Grid>
+                </Frame>
+
+                    <Frame Grid.Row="3" Style="{StaticResource FrameEmployee}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Style="{StaticResource ImageEmployee}"  Source="icon_employee.png"/>
+                            <Label Grid.Row="1" Margin="0,0,0,0" TextColor="Black" Text="Ковлягина Валерия" HorizontalTextAlignment="Center" FontSize="20"/>
+                        </Grid>
+                    </Frame>
+                </Grid>
+                </Frame>
+
+                <!--#endregion-->
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
