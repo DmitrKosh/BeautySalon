@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Salon2.Views.BookingServicePage"
              xmlns:vm="clr-namespace:Salon2.ViewModels"
+             xmlns:vm2="clr-namespace:XCalendar.Core.Collections;assembly=XCalendar.Core"
+             xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             
              Title="{Binding Title}"
              BackgroundColor="#004D51">
 
@@ -15,12 +18,27 @@
             <Color x:Key="Accent">#96d1ff</Color>
              <Style x:Key="FrameEmployee" TargetType="Frame">
                 <Setter Property="BorderColor" Value="Black"/>
-                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="CornerRadius" Value="10"/>
                 <Setter Property="BackgroundColor" Value="#3cbf8e"/>
-                <Setter Property="Margin" Value="30,0,30,15"/>
+                <Setter Property="Margin" Value="10,0,10,15"/>
             </Style>
+            
             <Style x:Key="ImageEmployee" TargetType="Image">
                 <Setter Property="Margin" Value="5,20"/>
+            </Style>
+
+            <Style x:Key="ButtonCal" TargetType="Button">
+                
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="Background" Value="#3cbf8e"/>
+                <Setter Property="Margin" Value="0.5"/>
+                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                
+            </Style>
+
+            <Style x:Key="LabelCal" TargetType="Label">
+                <Setter Property="Margin" Value="1"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -31,22 +49,51 @@
 
     <Grid>
         <ScrollView>
-            <StackLayout BackgroundColor="#004D51" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+            <!--<Grid BackgroundColor="#004D51" Padding="30,24,30,24">-->
+            <Grid BackgroundColor="#004D51" Padding="30,0,30,0">
                 
 
                 <!--#region -->
 
 
                 <Grid>
+
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Margin="0,10,0,15" TextColor="Black" Text="Работники нашего салона" HorizontalTextAlignment="Center" FontSize="23"/>
 
-                    <Frame Grid.Row="1" Style="{StaticResource FrameEmployee}">
+                    <!--#region Календарь-->
+                    <!--<Frame Grid.Row="0" Style="{StaticResource FrameEmployee}">-->
+                        <Grid>
+                            <controls:Calendar Culture="{Binding Culture}" MonthLabelColor="Black" YearLabelColor="Black" 
+                                               SwipeToChangeMonthEnabled="False" SwipeUpToHideEnabled="False"
+                                               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                               
+                                               
+                                               >
+
+                            </controls:Calendar>
+                            <!--<controls:Calendar Padding="10,0,10,0"   
+                   SelectedBorderWidth="4"   
+                   DisabledBorderColor="Black"  
+                   ShowNumberOfWeek="false"  
+                   StartDay="Monday"  
+                   TitleLabelTextColor="Purple"  
+                   TitleLeftArrowTextColor="Blue"  
+                   SelectedDate="{Binding Date}"  
+                   SpecialDates="{Binding Attendances}"  
+                   DateCommand="{Binding DateChosen}"/>-->
+
+                        </Grid>
+                    
+                    <!--#endregion-->
+
+                    <Grid Grid.Row="1" >
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
@@ -55,12 +102,12 @@
 
                             <Label Grid.Row="0" Margin="0,0,0,0" TextColor="Black" Text="Выбор необходимой процедуры" HorizontalTextAlignment="Center" FontSize="20"/>
                             <Picker Grid.Row="1" ItemsSource="{Binding }">
-                                
+
                             </Picker>
                         </Grid>
-                    </Frame>
+                    </Grid>
 
-                    <Frame Grid.Row="2" Style="{StaticResource FrameEmployee}">
+                    <Grid Grid.Row="2" >
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
@@ -71,7 +118,7 @@
                             <DatePicker Grid.Row="1"/>
                             <TimePicker Grid.Row="2"/>
                         </Grid>
-                    </Frame>
+                    </Grid>
 
                     <Frame Grid.Row="3" Style="{StaticResource FrameEmployee}">
                         <Grid>
@@ -84,7 +131,6 @@
                         </Grid>
                     </Frame>
 
-
                     <Grid Grid.Row="4" Margin="20,20,20,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"></RowDefinition>
@@ -94,10 +140,12 @@
 
                         </Button>
                     </Grid>
+
+                    <Label />
                 </Grid>
 
                 <!--#endregion-->
-            </StackLayout>
+            </Grid>
         </ScrollView>
     </Grid>
 

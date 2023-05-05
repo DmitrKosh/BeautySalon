@@ -13,14 +13,30 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
-             <Style x:Key="FrameEmployee" TargetType="Frame">
-                <Setter Property="BorderColor" Value="Black"/>
-                <Setter Property="CornerRadius" Value="15"/>
-                <Setter Property="BackgroundColor" Value="#3cbf8e"/>
-                <Setter Property="Margin" Value="30,0,30,15"/>
-            </Style>
             <Style x:Key="ImageEmployee" TargetType="Image">
                 <Setter Property="Margin" Value="5,20"/>
+            </Style>
+            
+            <Style x:Key="ButtonRes" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+
+            <Style x:Key="FrameInfoBox" TargetType="Frame">
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="BackgroundColor" Value="#FFEDAF"/>    
+                <Setter Property="Margin" Value="45"/>
+            </Style>
+
+            <Style x:Key="FrameInfoEmployee" TargetType="Frame">
+                <Setter Property="Margin" Value="15"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="BackgroundColor" Value="#FFE794"/>
+                <Setter Property="Background" Value="#FFE794"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -32,27 +48,76 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!--#region картинка с колибри-->
-       
-        <!--#endregion-->
+        
         <ScrollView Grid.Row="1">
-            <StackLayout BackgroundColor="#004D51" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                
-                <Label Margin="0,20" TextColor="White" Text="Салон-красоты &quot;Колибри&quot;" HorizontalTextAlignment="Center" FontSize="Title"/>
+            <StackLayout BackgroundColor="#004D51" Orientation="Vertical" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Label TextColor="White" Text="Наши мастера — знатоки своего дела. Постоянные стажировки и повышение квалификации — неотъемлемая 
-                       составляющая нашего салона. У каждого мастера свой стиль, свой почерк. Из каталога наших работ Вы всегда подберете себе именно 
-                       то, что подходит именно Вам. По желанию воплотим Ваши задумки в реальность." 
-                       FontSize="16"/>
+                    <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End" VerticalOptions="Start" Source="fon.png"/>
+                    <Image Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Start" Source="fon2.png"/>
+                    <Image Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" HorizontalOptions="End" Source="fon3.png"/>
 
-                <!--#region -->
+                    <!--#region Описание салона-->
+                    <Frame Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.8" HorizontalOptions="Fill" Padding="15,15,15,15" Style="{StaticResource FrameInfoBox}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Margin="0,20" TextColor="Black" Text="Салон-красоты &quot;Колибри&quot;" HorizontalTextAlignment="Center" FontSize="Title"/>
+                            <Label Grid.Row="1" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center" Text="Наши мастера — знатоки своего дела. Постоянные стажировки и повышение квалификации — неотъемлемая 
+                                        составляющая нашего салона. У каждого мастера свой стиль, свой почерк. Из каталога наших работ Вы всегда подберете себе именно 
+                                        то, что подходит именно Вам. По желанию воплотим Ваши задумки в реальность." />
+                            <Image Style="{StaticResource ImageEmployee}" Grid.Row="2" Source="original_55b5b0e.jpg"/>
+                        </Grid>
+                    </Frame>
+                    <!--#endregion-->
+
+                    <!--#region Бронирование услуги-->
+                    <Button Grid.ColumnSpan="2" Grid.Row="2" HorizontalOptions="Center" Style="{StaticResource ButtonRes}" BackgroundColor="#9AFCD3" Command="{Binding OnBookingClicked}" Text="Забронировать услугу"/>
+                    <!--#endregion-->
+
+                    <!--#region employee-->
+                    <Frame Grid.Row="3" Grid.ColumnSpan="2" Opacity="0.8" Style="{StaticResource FrameInfoBox}">
+                        <Grid>
+                            <StackLayout Orientation="Vertical">
+                                <Label Margin="0,20" TextColor="Black" Text="Наши сотрудники" HorizontalTextAlignment="Center" FontSize="Title"/>
+                                <Image Style="{StaticResource ImageEmployee}" Source="icon_employee.png"/>
+                                <Frame Style="{StaticResource FrameInfoEmployee}">
+                                    <Label>Тут описание сотрудника</Label>
+                                </Frame>
+
+                                <Image Style="{StaticResource ImageEmployee}" Source="icon_employee.png"/>
+                                <Frame Style="{StaticResource FrameInfoEmployee}">
+                                    <Label>Тут описание сотрудника</Label>
+                                </Frame>
+
+                                <Image Style="{StaticResource ImageEmployee}" Source="icon_employee.png"/>
+                                <Frame Style="{StaticResource FrameInfoEmployee}">
+                                    <Label>Тут описание сотрудника</Label>
+                                </Frame>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <!--#endregion-->
+
+                </Grid>
 
 
-                <Button Command="{Binding BookingServicesCommand}" BorderWidth="1.4" CornerRadius="5" BorderColor="Black" BackgroundColor="#3cbf8e" Margin="40" Text="Записаться на услугу"></Button>
 
-                <Frame Padding="0" BorderColor="Black" BackgroundColor="Yellow" CornerRadius="15">
+                <!--<Frame Padding="0" BorderColor="Black" BackgroundColor="Yellow" CornerRadius="15">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -89,15 +154,18 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
                                 <RowDefinition Height="Auto"></RowDefinition>
-                            </Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
                             <Image Style="{StaticResource ImageEmployee}"  Source="icon_employee.png"/>
                             <Label Grid.Row="1" Margin="0,0,0,0" TextColor="Black" Text="Ковлягина Валерия" HorizontalTextAlignment="Center" FontSize="20"/>
+                            <Button Style="{StaticResource ButtonRes}" BackgroundColor="#9AFCD3" Grid.Column="1" Grid.Row="2" Command="{Binding OnBookingClicked}" Text="Войти без авторизации"/>
                         </Grid>
                     </Frame>
                 </Grid>
+                    
                 </Frame>
+                -->
 
-                <!--#endregion-->
             </StackLayout>
         </ScrollView>
     </Grid>

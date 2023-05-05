@@ -8,17 +8,18 @@ namespace Salon2.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        public Command BookingServicesCommand { get; }
+        public Command OnBookingClicked { get; }
 
         public AboutViewModel()
         {
             Title = "Главная";
-            BookingServicesCommand = new Command(OnBookingClicked);
+            OnBookingClicked = new Command(OnLoginClicked);
         }
 
-        private void OnBookingClicked(object obj)
+        private async void OnLoginClicked(object obj)
         {
-            Application.Current.MainPage = new BookingServicePage();
+            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+            await Shell.Current.GoToAsync($"//{nameof(BookingServicePage)}");
         }
     }
 }

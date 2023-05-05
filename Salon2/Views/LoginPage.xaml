@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="Salon2.Views.LoginPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#004D51">
+             BackgroundColor="#005E63">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="entryRes" TargetType="Entry">
@@ -18,19 +18,36 @@
             <Style x:Key="labelRes" TargetType="Label">
                 <Setter Property="TextColor" Value="White"/>
             </Style>
+
+            <Style x:Key="ButtonRes" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Padding="30,0,30,0" VerticalOptions="Center">
-            <StackLayout Orientation="Vertical" Margin="0,0,0,20">
-                <Label Style="{StaticResource labelRes}">Введите номер телефона:</Label>
-                <Entry x:Name="_NumberPhone" Placeholder="Номер телефона" Style="{StaticResource entryRes}"/>
-            </StackLayout>
-            <StackLayout Orientation="Vertical">
-                <Label Style="{StaticResource labelRes}">Введите пароль:</Label>
-                <Entry x:Name="_Password" Placeholder="Password" IsPassword="True" ClearButtonVisibility="WhileEditing"/>
-            </StackLayout>
-            <Button Margin="40,10" VerticalOptions="Center" Text="Войти" Command="{Binding LoginCommand}"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="1" Grid.Row="1" 
+                    HorizontalOptions="Center" VerticalOptions="Fill" Source="logo5.png"/>
+            <Button Style="{StaticResource ButtonRes}" BackgroundColor="#9AFCD3" Grid.Column="1" Grid.Row="2" Command="{Binding LoginCommand}" Text="Войти без авторизации"/>
+            <Button Style="{StaticResource ButtonRes}" BackgroundColor="#9AFCD3" Grid.Column="1" Grid.Row="4" Command="{Binding LoginCommand}" Text="Авторизация"/>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -12,6 +12,8 @@ namespace Salon2.Views
         {
             InitializeComponent();
             this.BindingContext = new BookingServiceViewModel();
+
+            
         }
     }
 }
