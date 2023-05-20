@@ -14,12 +14,24 @@ namespace Salon2.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Покраска волос", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Корректировка бороды", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Стрижка волос", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Стрижка женская с укладкой",
+                    Description="Стоимость услуги: 650 р." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Стрижка мужская",
+                    Description="Стоимость услуги: 500 р." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Стрижка детская до 5 лет",
+                    Description="Стоимость услуги: 450 р." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Окантовка челки",
+                    Description="Стоимость услуги: 350 р." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Укладка",
+                    Description="Стоимость услуги: 350 р." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Сложная укладка",
+                    Description="Стоимость услуги: 600 р." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Укладка детская(до 10 лет)",
+                    Description="Стоимость услуги: 400 р." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Мужская укладка на короткие волосы",
+                    Description="Стоимость услуги: 400 р." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Укладка на длинные волосы",
+                    Description="Стоимость услуги: 500р." }
             };
         }
 

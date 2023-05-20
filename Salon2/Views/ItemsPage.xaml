@@ -12,33 +12,91 @@
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Style x:Key="ImageEmployee" TargetType="Image">
+                <Setter Property="Margin" Value="5,20"/>
+            </Style>
+
+            <Style x:Key="ButtonRes" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+
+            <Style x:Key="FrameInfoBox" TargetType="Frame">
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="BackgroundColor" Value="#FFEDAF"/>
+                <Setter Property="Margin" Value="23,35"/>
+            </Style>
+
+            <Style x:Key="FrameInfoServices" TargetType="Frame">
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="BorderColor" Value="#006368"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BackgroundColor" Value="#9AFCD3"/>
+                <Setter Property="Background" Value="#9AFCD3"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
     <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <ScrollView>
+        <Frame Opacity="0.8"  Padding="3,14" Style="{StaticResource FrameInfoBox}">
         <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">
+
             <CollectionView.ItemTemplate>
+
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Item">
-                        <Label Text="{Binding Text}" 
+                    <Grid Padding="0,2" >
+                        <Frame Style="{StaticResource FrameInfoServices}">
+                            <StackLayout Padding="1" x:DataType="model:Item">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="6*"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+
+                                            <Label Grid.Column="0" Text="{Binding Text}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" 
-                            TextColor="White"/>
-                        <Label Text="{Binding Description}" 
+                            HorizontalTextAlignment="Start"
+                            TextColor="Black"/>
+                                            <Label Grid.Column="0" Grid.Row="1" Text="{Binding Description}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" 
-                            TextColor="White"/>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer 
+                            HorizontalTextAlignment="Start"
+                            TextColor="Black"/>
+                                            <Image Grid.Column="1" Grid.RowSpan="2" Source="boroda.png" WidthRequest="50"/>
+                                        </Grid>
+                                <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
                                 CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
+                                </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-        </CollectionView>
+            </CollectionView>
+        </Frame>
+        </ScrollView>
     </RefreshView>
 </ContentPage>
