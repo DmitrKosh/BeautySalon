@@ -23,7 +23,7 @@
                 <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="CornerRadius" Value="20"/>
             </Style>
-
+            <!--#region прочие ресурсы-->
             <Style x:Key="FrameInfoBox" TargetType="Frame">
                 <Setter Property="BorderColor" Value="Black"/>
                 <Setter Property="CornerRadius" Value="15"/>
@@ -32,12 +32,13 @@
             </Style>
 
             <Style x:Key="FrameInfoEmployee" TargetType="Frame">
-                <Setter Property="Margin" Value="15"/>
+                <Setter Property="Margin" Value="10"/>
                 <Setter Property="BorderColor" Value="Black"/>
                 <Setter Property="CornerRadius" Value="15"/>
                 <Setter Property="BackgroundColor" Value="#FFE794"/>
                 <Setter Property="Background" Value="#FFE794"/>
             </Style>
+            <!--#endregion-->
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -55,15 +56,20 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End" VerticalOptions="Start" Source="fon.png"/>
-                    <Image Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Start" Source="fon2.png"/>
+                    <!--#region фоновые картинки-->
+                    <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End" 
+                           VerticalOptions="Start" Source="fon.png"/>
+                    <Image Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" HorizontalOptions="Start" 
+                           VerticalOptions="Start" Source="fon2.png"/>
                     <Image Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" HorizontalOptions="End" Source="fon3.png"/>
+                    <!--#endregion-->
 
                     <!--#region Описание салона-->
                     <Frame Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.8" HorizontalOptions="Fill" Padding="15" Style="{StaticResource FrameInfoBox}">
@@ -73,7 +79,8 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Margin="0,20" TextColor="Black" Text="Салон-красоты &quot;Колибри&quot;" HorizontalTextAlignment="Center" FontSize="Title"/>
+                            <Label Grid.Row="0" Margin="0,20" TextColor="Black" Text="Салон-красоты &quot;Колибри&quot;" 
+                                   HorizontalTextAlignment="Center" FontSize="Title"/>
                             <Label Grid.Row="1" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center" Text="Наши мастера — знатоки своего дела. Постоянные стажировки и повышение квалификации — неотъемлемая 
                                         составляющая нашего салона. У каждого мастера свой стиль, свой почерк. Из каталога наших работ Вы всегда подберете себе именно 
                                         то, что подходит именно Вам. По желанию воплотим Ваши задумки в реальность." />
@@ -83,44 +90,36 @@
                     <!--#endregion-->
 
                     <!--#region Бронирование услуги-->
-                    <Button Grid.ColumnSpan="2" Grid.Row="2" HorizontalOptions="Center" Style="{StaticResource ButtonRes}" BackgroundColor="#9AFCD3" Command="{Binding OnBookingClicked}" Text="Забронировать услугу"/>
+                    <Button Grid.ColumnSpan="2" Grid.Row="2" HorizontalOptions="Center" Style="{StaticResource ButtonRes}" 
+                            BackgroundColor="#9AFCD3" Command="{Binding OnBookingClicked}" Text="Забронировать услугу"/>
                     <!--#endregion-->
 
-                    <!--#region employee-->
+                    <!--#region Работники-->
                     <Frame Grid.Row="3" Grid.ColumnSpan="2" Opacity="0.8" Style="{StaticResource FrameInfoBox}">
                         <Grid>
                             <StackLayout Orientation="Vertical">
                                 <Label Margin="0,20" TextColor="Black" Text="Наши сотрудники" HorizontalTextAlignment="Center" FontSize="Title"/>
                                 <Image Style="{StaticResource ImageEmployee}" Source="icon_employee.png"/>
                                 <Frame Style="{StaticResource FrameInfoEmployee}">
-                                    <Label>нна - работник салона красоты, обладает высокой квалификацией в области ухода за волосами и 
-                                        визажа. Она профессионально проводит различные процедуры: стрижки, окрашивание, мелирование, 
-                                        укладку и т.д. Анна также специализируется на создании свадебных причесок и макияжа, обладает 
-                                        хорошим вкусом и чутким отношением к клиентам.</Label>
+                                    <Label HorizontalTextAlignment="Center" FontSize="Medium">Aнна - работник нашего салона красоты, обладает высокой квалификацией в области ухода за волосами и визажа. Она профессионально проводит различные процедуры: стрижки, окрашивание, мелирование, укладку и т.д. Анна также специализируется на создании свадебных причесок и макияжа, обладает хорошим вкусом и чутким отношением к клиентам.</Label>
                                 </Frame>
 
                                 <Image Style="{StaticResource ImageEmployee}" Source="icon_employee.png"/>
                                 <Frame Style="{StaticResource FrameInfoEmployee}">
-                                    <Label>Валерия - работник салона красоты, профессиональный мастер по маникюру и педикюру. 
-                                        Она имеет большой опыт работы в данной сфере и знает все современные техники и тенденции. 
-                                        Валерия очень вежливая и приятная в общении, всегда учитывает пожелания и требования клиентов. 
-                                        Она фокусируется на деталях, чтобы обеспечить высокое качество услуги и отличный результат. 
-                                        Валерия точно знает, какое оборудование и инструменты нужны для работы, а также как правильно 
-                                        обращаться с клиентами.</Label>
+                                    <Label HorizontalTextAlignment="Center" FontSize="Medium">Валерия -  профессиональный мастер по маникюру и педикюру. Она имеет большой опыт работы в данной сфере и знает все современные техники и тенденции. Валерия очень вежливая и приятная в общении, всегда учитывает пожелания и требования клиентов. Она фокусируется на деталях, чтобы обеспечить высокое качество услуги и отличный результат. Валерия точно знает, какое оборудование и инструменты нужны для работы, а также как правильно обращаться с клиентами.</Label>
                                 </Frame>
 
                                 <Image Style="{StaticResource ImageEmployee}" Source="icon_employee.png"/>
                                 <Frame Style="{StaticResource FrameInfoEmployee}">
-                                    <Label>Евгения - профессиональный мастер по уходу за волосами в салоне красоты. Она имеет большой 
-                                        опыт работы и глубокие знания в области стрижки, окрашивания, укладки и ухода за волосами. 
-                                        Евгения всегда уделяет внимание индивидуальным потребностям клиента и стремится помочь им 
-                                        достигнуть желаемого стиля. Кроме того, Евгения является дружелюбным и отзывчивым человеком, 
-                                        который создает уютную и удобную атмосферу для своих клиентов, чтобы они могли полностью расслабиться 
-                                        и насладиться процессом ухода за своими волосами.</Label>
+                                    <Label HorizontalTextAlignment="Center" FontSize="Medium">Евгения - профессиональный мастер по уходу за волосами в салоне красоты. Она имеет большой опыт работы и глубокие знания в области стрижки, окрашивания, укладки и ухода за волосами. Евгения всегда уделяет внимание индивидуальным потребностям клиента и стремится помочь им достигнуть желаемого стиля. Кроме того, Евгения является дружелюбным и отзывчивым человеком, который создает уютную и удобную атмосферу для своих клиентов, чтобы они могли полностью расслабиться и насладиться процессом ухода за своими волосами.</Label>
                                 </Frame>
                             </StackLayout>
                         </Grid>
                     </Frame>
+                    <!--#endregion-->
+                    
+                    <!--#region Каталог услуг-->
+                    <Button Grid.ColumnSpan="2" Grid.Row="4" HorizontalOptions="Center" Style="{StaticResource ButtonRes}" BackgroundColor="#9AFCD3" Command="{Binding OnCatalogClicked}" Text="Каталог услуг"/>
                     <!--#endregion-->
 
                 </Grid>

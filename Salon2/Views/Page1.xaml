@@ -1,37 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Salon2.Views.BookingServicePage"
-             xmlns:local="clr-namespace:Salon2.Views"
-             xmlns:vm="clr-namespace:Salon2.ViewModels"
-             xmlns:vm2="clr-namespace:XCalendar.Core.Collections;assembly=XCalendar.Core"
-             xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar" 
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             
-             Title="{Binding Title}"
-             BackgroundColor="#004D51">
-
-    <ContentPage.BindingContext>
-        <vm:BookingServiceViewModel/>
-    </ContentPage.BindingContext>
-
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             x:Class="Salon2.Views.Page1">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
-             <Style x:Key="FrameEmployee" TargetType="Frame">
+            <Style x:Key="FrameEmployee" TargetType="Frame">
                 <Setter Property="BorderColor" Value="Black"/>
                 <Setter Property="CornerRadius" Value="10"/>
                 <Setter Property="BackgroundColor" Value="#FFEDAF"/>
                 <Setter Property="Margin" Value="10,0,10,5"/>
                 <Setter Property="Opacity" Value="0.8"/>
             </Style>
-            
+
             <Style x:Key="ImageEmployee" TargetType="Image">
                 <Setter Property="Margin" Value="5,20"/>
             </Style>
 
             <Style x:Key="ButtonCal" TargetType="Button">
-                
+
                 <Setter Property="CornerRadius" Value="20"/>
                 <Setter Property="Background" Value="#9AFCD3"/>
                 <Setter Property="Margin" Value="10,5"/>
@@ -51,11 +38,12 @@
         <ToolbarItem IconImageSource="icon.png"/>
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Content>
     <Grid>
         <ScrollView>
             <Grid BackgroundColor="#004D51" Padding="30,0,30,0">
 
-                
+
                 <!--#region -->
 
 
@@ -76,12 +64,12 @@
                            VerticalOptions="Start" Source="fon.png"/>
                     <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalOptions="Start" 
                            VerticalOptions="Start" Source="fon2.png"/>
-                    
+
 
                     <!--#region Календарь-->
                     <Frame Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource FrameEmployee}">
                         <Grid>
-                            <controls:Calendar Culture="{Binding}" MonthLabelColor="Black" YearLabelColor="Black" 
+                            <controls:Calendar x:Name="CalCulture" Culture="{Binding Culture}" MonthLabelColor="Black" YearLabelColor="Black" 
                                                SwipeToChangeMonthEnabled="False" SwipeUpToHideEnabled="False"
                                                VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
                                                >
@@ -92,7 +80,7 @@
                     <!--#endregion-->
 
                     <Frame Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource FrameEmployee}">
-                    
+
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
@@ -122,51 +110,52 @@
 
                             <Label Grid.Row="4" Grid.ColumnSpan="2" Margin="0,0,0,10" TextColor="Black" Text="Время услуги:" HorizontalTextAlignment="Center" FontSize="20"/>
 
-                            <Button Grid.Row="5" Grid.Column="0" Text="9:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
+                            <Button x:Name="bt9_00" Grid.Row="5" Grid.Column="0" Text="9:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click9_00">
                             </Button>
-                            <Button Grid.Row="5" Grid.Column="1" Text="15:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
-                            </Button>
-
-                            <Button Grid.Row="6" Grid.Column="0" Text="10:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}"> 
-                            </Button>
-                            <Button Grid.Row="6" Grid.Column="1" Text="16:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
+                            <Button x:Name="bt15_00" Grid.Row="5" Grid.Column="1" Text="15:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click15_00">
                             </Button>
 
-                            <Button Grid.Row="7" Grid.Column="0" Text="11:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
+                            <Button x:Name="bt10_00" Grid.Row="6" Grid.Column="0" Text="10:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click10_00">
                             </Button>
-                            <Button Grid.Row="7" Grid.Column="1" Text="17:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
-                            </Button>
-
-                            <Button Grid.Row="8" Grid.Column="0" Text="12:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
-                            </Button>
-                            <Button Grid.Row="8" Grid.Column="1" Text="18:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
+                            <Button x:Name="bt16_00" Grid.Row="6" Grid.Column="1" Text="16:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click16_00">
                             </Button>
 
-                            <Button Grid.Row="9" Grid.Column="0" Text="13:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
+                            <Button x:Name="bt11_00" Grid.Row="7" Grid.Column="0" Text="11:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click11_00">
                             </Button>
-                            <Button Grid.Row="9" Grid.Column="1" Text="19:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
+                            <Button x:Name="bt17_00" Grid.Row="7" Grid.Column="1" Text="17:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click17_00">
                             </Button>
 
-                            <Button Grid.Row="10" Grid.Column="0" Text="14:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
+                            <Button x:Name="bt12_00" Grid.Row="8" Grid.Column="0" Text="12:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click12_00">
                             </Button>
-                            <Button Grid.Row="10" Grid.Column="1" Text="20:00" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonService}">
+                            <Button x:Name="bt18_00" Grid.Row="8" Grid.Column="1" Text="18:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click18_00">
+                            </Button>
+
+                            <Button x:Name="bt13_00" Grid.Row="9" Grid.Column="0" Text="13:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click13_00">
+                            </Button>
+                            <Button x:Name="bt19_00" Grid.Row="9" Grid.Column="1" Text="19:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click19_00">
+                            </Button>
+
+                            <Button x:Name="bt14_00" Grid.Row="10" Grid.Column="0" Text="14:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click14_00">
+                            </Button>
+                            <Button x:Name="bt20_00" Grid.Row="10" Grid.Column="1" Text="20:00" Style="{StaticResource ButtonCal}" Clicked="Button_Click20_00">
                             </Button>
                         </Grid>
                     </Frame>
 
                     <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="10,20,10,0" HeightRequest="70">
 
-                        <Button Text="Забронировать время" Style="{StaticResource ButtonCal}" IsEnabled="{Binding ClickedButtonBooking}">
+                        <Button Text="Забронировать время" Style="{StaticResource ButtonCal}" Clicked="Button_Booking">
 
                         </Button>
                     </Grid>
 
-                    
+
                 </Grid>
 
                 <!--#endregion-->
             </Grid>
         </ScrollView>
+        
     </Grid>
-
+    </ContentPage.Content>
 </ContentPage>

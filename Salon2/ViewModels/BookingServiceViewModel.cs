@@ -9,7 +9,7 @@ namespace Salon2.ViewModels
 {
     public class BookingServiceViewModel :BaseViewModel
     {
-        public CultureInfo Culture => new CultureInfo("ru-RU");
+        
 
         DateTime _dateTime = DateTime.Today;
 
@@ -22,6 +22,8 @@ namespace Salon2.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        
 
         int _month;
         int _year;
@@ -38,10 +40,6 @@ namespace Salon2.ViewModels
             _dateOfWeek = Convert.ToInt32(dateValue.DayOfWeek);
             DayOfWeek = _dateOfWeek;
             int _dayOnMonth = DateTime.DaysInMonth(_year, _month); // дней в месяце
-            
-            //for (int i = dateOfWeek)
-
-            //нужно получить номер первого дня месяца для цикла. 
         }
 
         public int Month
@@ -71,5 +69,7 @@ namespace Salon2.ViewModels
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Salon2.Views.RegistrationPage"
+             xmlns:viewmodels="clr-namespace:Salon2.ViewModels" 
+             xmlns:model="clr-namespace:Salon2.Models"
+             
+             
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#005E63">
+
+    <ContentPage.BindingContext>
+        <model:User/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <Style x:Key="entryRes" TargetType="Entry">
+            <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Keyboard" Value="Numeric"/>
+        </Style>
+        <Style x:Key="labelRes" TargetType="Label">
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+        <!--<Style x:Key="ButtonRes" TargetType="Button">
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Background" Value="#9AFCD3"/>
+            <Setter Property="Margin" Value="10,5"/>
+            <Setter Property="BorderWidth" Value="1.5"/>
+            <Setter Property="BorderColor" Value="#006368"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>-->
+        <Style x:Key="ButtonRes" TargetType="Button">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        <Style x:Key="StackLayoutStyle" TargetType="StackLayout">
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Grid.ColumnSpan" Value="3"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="&lt;--" Clicked="Button_Clicked_1" Style="{DynamicResource ButtonRes}" Background="#9AFCD3" Margin="10,25" CornerRadius="50"/>
+
+                <StackLayout Grid.Row="1" Style="{StaticResource StackLayoutStyle}">
+                    <Label Text="Введите логин"/>
+                    <Entry x:Name="LoginEntry" Text="{Binding Login}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" Style="{StaticResource StackLayoutStyle}">
+                    <Label Text="Введите пароль"/>
+                    <Entry x:Name="PasswordEntry" Text="{Binding Password}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" Style="{StaticResource StackLayoutStyle}">
+                    <Label Text="Повторите пароль"/>
+                    <Entry x:Name="RepeatPasswordEntry"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="4" Style="{StaticResource StackLayoutStyle}">
+                    <Label Text="Введите ваше имя"/>
+                    <Entry x:Name="NameEntry" Text="{Binding Name}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="5" Style="{StaticResource StackLayoutStyle}">
+                    <Label Text="Введите вашу фамилию"/>
+                    <Entry x:Name="SurnameEntry" Text="{Binding Surname}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="6" Style="{StaticResource StackLayoutStyle}">
+                    <Label Text="Введите номер телефона"/>
+                    <Entry x:Name="PhoneNumberEntry" Text="{Binding Phone}"/>
+                </StackLayout>
+
+                <Button Text="Зарегистрироваться" BackgroundColor="#9AFCD3" Style="{StaticResource ButtonRes}"
+                    Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,30" Clicked="Button_Clicked"/>
+
+                <Label Text="-" Grid.Row="3" Grid.Column="4" HorizontalOptions="Center" x:Name="labelPassowrd" TextColor="Red"/>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

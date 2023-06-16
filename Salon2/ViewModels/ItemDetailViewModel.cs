@@ -12,6 +12,7 @@ namespace Salon2.ViewModels
         private string itemId;
         private string text;
         private string description;
+        private string imageItem;
         public string Id { get; set; }
 
         public string Text
@@ -24,6 +25,12 @@ namespace Salon2.ViewModels
         {
             get => description;
             set => SetProperty(ref description, value);
+        }
+
+        public string ImageItem
+        {
+            get => imageItem;
+            set => SetProperty(ref imageItem, value);
         }
 
         public string ItemId
@@ -47,6 +54,12 @@ namespace Salon2.ViewModels
                 Id = item.Id;
                 Text = item.Text;
                 Description = item.Description;
+                
+                if (item.ImageItem == "1") 
+                {
+                    ImageItem = "";
+                    
+                }
             }
             catch (Exception)
             {

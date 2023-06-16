@@ -1,15 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:viewmodels="clr-namespace:Salon2.ViewModels" x:DataType="viewmodels:LoginViewModel"
-             mc:Ignorable="d"
-             x:Class="Salon2.Views.LoginPage"
-             Shell.NavBarIsVisible="False"
-             BackgroundColor="#005E63"
-             >
-    
+             x:Class="Salon2.Views.Autorization">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="entryRes" TargetType="Entry">
@@ -30,9 +22,9 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    
-    
+
+
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -53,16 +45,17 @@
             <Image  Grid.Column="1" Grid.Row="1" 
                     HorizontalOptions="Center" VerticalOptions="Fill" Source="logo5.png"/>
 
-                <Entry x:Name="login" Text="{Binding Login}" Placeholder="Логин" Grid.Row="2" Grid.Column="1"/>
+            <!--<Frame Background="#9AFCD3" Grid.Row="2" Grid.Column="1" BorderColor="Black" CornerRadius="20">-->
+            <Entry x:Name="login" Text="{Binding Login}" Placeholder="логин/телефон" Grid.Row="2" Grid.Column="1"/>
+            <!--</Frame>-->
+            <!--<Frame Background="#9AFCD3" Grid.Row="3" Grid.Column="1" BorderColor="Black" CornerRadius="20">-->
+            <Entry x:Name="password" Text="{Binding Password}" Placeholder="пароль" Grid.Row="3" Grid.Column="1"/>
+            <!--</Frame>-->
 
-                <Label x:Name="passwordLabel" Grid.Row="3" Grid.Column="1"/>
-                <Entry x:Name="password" Text="{Binding Password}" Placeholder="пароль" Grid.Row="3" Grid.Column="1"/>
-
-
-            <Button Style="{StaticResource ButtonRes}" Clicked="Button_Clicked_1" Text="ВОЙТИ" 
+            <Button Style="{StaticResource ButtonRes}" Command="{Binding LoginCommand}" Text="ВОЙТИ" 
                     CornerRadius="30" Margin="25,15,25,10" BackgroundColor="#43FFB1" Grid.Column="1" Grid.Row="4"/>
 
-            <Button Style="{StaticResource ButtonRes}" Clicked="Button_Clicked" Text="Регистрация" 
+            <Button Style="{StaticResource ButtonRes}" Command="{Binding OnRegistrationCommand}" Text="Регистрация" 
                     Margin="20,5,20,20" BackgroundColor="#9AFCD3" Grid.Column="1" Grid.Row="6"/>
 
         </Grid>
