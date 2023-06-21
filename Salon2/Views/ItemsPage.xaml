@@ -47,7 +47,7 @@
 
     <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <ScrollView>
-        <Frame Opacity="0.8"  Padding="3,14" Style="{StaticResource FrameInfoBox}">
+        <Frame Opacity="0.8" Padding="3,14" Style="{StaticResource FrameInfoBox}">
         <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">

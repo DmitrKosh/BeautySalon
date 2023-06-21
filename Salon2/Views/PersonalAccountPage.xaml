@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Salon2.Views.PersonalAccountPage"
+             Title="Личный кабинет">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Style x:Key="FrameEmployee" TargetType="Frame">
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BackgroundColor" Value="#FFEDAF"/>
+                <Setter Property="Margin" Value="10,30,10,5"/>
+                <Setter Property="Opacity" Value="0.8"/>
+            </Style>
+
+            <Style x:Key="ImageEmployee" TargetType="Image">
+                <Setter Property="Margin" Value="5,20"/>
+            </Style>
+
+            <Style x:Key="ButtonCal" TargetType="Button">
+
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="Background" Value="#9AFCD3"/>
+                <Setter Property="Margin" Value="10,5"/>
+                <Setter Property="BorderWidth" Value="1.5"/>
+                <Setter Property="BorderColor" Value="#006368"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False" TargetType="Button">
+                        <Setter Property="Background" Value="#36594B"/>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
+
+            <Style x:Key="LabelCal" TargetType="Label">
+                <Setter Property="Margin" Value="1"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon.png"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView>
+                <Grid BackgroundColor="#078774">
+
+
+                    <!--#region -->
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End" 
+                           VerticalOptions="Start" Source="fon.png"/>
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalOptions="Start" 
+                           VerticalOptions="End" Source="fon2.png"/>
+
+
+
+                    <Frame Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource FrameEmployee}">
+                        <StackLayout Orientation="Vertical">
+                            <Label>Ваше имя</Label>
+                            <Entry></Entry>
+                            <Label>Ваш телефон</Label>
+                            <Entry></Entry>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource FrameEmployee}">
+                        <StackLayout Orientation="Vertical">
+                            <Label HorizontalOptions="Center">Ваши записи</Label>
+                            <CollectionView></CollectionView>
+                            
+                        </StackLayout>
+                    </Frame>
+
+
+
+
+
+
+                    <!--#endregion-->
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

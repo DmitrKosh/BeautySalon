@@ -49,18 +49,20 @@ namespace Salon2.Views
         }
 
         private DateTime? _dateTime;
-        public DateTime? DateTime 
+        public DateTime? DateTimeOrder 
         {
             get { return _dateTime; }
             set { _dateTime = value; OnPropertyChanged(); }
         }
 
+        private DateTime TodayDate = DateTime.Today;
+        
         public Page1()
         {
             InitializeComponent();
             BindingContext = new Order();
             CalCulture.Culture = Culture;
-            CalCulture.MinimumDate = new DateTime(2020, 1, 1);
+            CalCulture.MinimumDate = TodayDate;
             bt9_00.IsEnabled = false;
             bt10_00.IsEnabled = false;
             bt11_00.IsEnabled = false;

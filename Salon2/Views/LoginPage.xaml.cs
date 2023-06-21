@@ -53,7 +53,8 @@ namespace Salon2.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
+            //await Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
+            Navigation.PushAsync(new RegistrationPage());
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)
@@ -77,6 +78,6 @@ namespace Salon2.Views
             {
                 LbErrLogOrPas.Text = "Неверный пароль или логин";
             }
-}
+        }
     }
 }

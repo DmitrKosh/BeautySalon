@@ -80,7 +80,7 @@
                             </Grid.RowDefinitions>
                             <Label Grid.Row="0" Margin="0,20" TextColor="Black" Text="Салон-красоты &quot;Колибри&quot;" 
                                    HorizontalTextAlignment="Center" FontSize="Title"/>
-                            <Label Grid.Row="1" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center" Text="Наши мастера — знатоки своего дела. Постоянные стажировки и повышение квалификации — неотъемлемая 
+                            <Label Grid.Row="1" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" Text="Наши мастера — знатоки своего дела. Постоянные стажировки и повышение квалификации — неотъемлемая 
                                         составляющая нашего салона. У каждого мастера свой стиль, свой почерк. Из каталога наших работ Вы всегда подберете себе именно 
                                         то, что подходит именно Вам. По желанию воплотим Ваши задумки в реальность." />
                             <Frame Grid.Row="2" Padding="0,2" BorderColor="Black">

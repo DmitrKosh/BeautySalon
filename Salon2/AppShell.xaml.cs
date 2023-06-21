@@ -15,6 +15,7 @@ namespace Salon2
             Routing.RegisterRoute(nameof(BookingServicePage), typeof(BookingServicePage));
             Routing.RegisterRoute(nameof(Page1), typeof(Page1));
             Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
+            Routing.RegisterRoute(nameof(PersonalAccountPage), typeof(PersonalAccountPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

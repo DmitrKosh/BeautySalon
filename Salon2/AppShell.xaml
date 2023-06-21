@@ -80,18 +80,21 @@
     <FlyoutItem Title="Главная" Icon="icon_main_menu.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Каталог услуг" Icon="icon_checklist.png">
+    <FlyoutItem Title="Личный кабинет" Icon="free_icon_user_1177568.png">
+        <ShellContent Route="PersonalAccountPage" ContentTemplate="{DataTemplate local:PersonalAccountPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Каталог услуг" Icon="free_icon_radio_button_1432628.png">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="регистрация" Icon="icon_checklist.png">
+    <!--<FlyoutItem Title="регистрация" Icon="icon_checklist.png">
         <ShellContent Route="RegistrationPage" ContentTemplate="{DataTemplate local:RegistrationPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Бронирование услуг" Icon="icon_checklist.png">
+    </FlyoutItem>-->
+    <FlyoutItem Title="Бронирование услуг" Icon="icon_checklist2.png">
         <ShellContent Route="Page1" ContentTemplate="{DataTemplate local:Page1}" />
     </FlyoutItem>
-    
 
-    <MenuItem Text="Выйти" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+
+    <MenuItem Text="Выйти" Icon="free_icon_power_button_1177485.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>
 
     
