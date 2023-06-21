@@ -77,5 +77,57 @@ namespace Salon2.Services
         {
             return await Task.FromResult(items);
         }
+
+
+
+        
+    }
+
+    public class MockDataStoreEmployee : IDataStore<Employee>
+    {
+        readonly List<Employee> employees;
+
+        public MockDataStoreEmployee()
+        {
+            employees = new List<Employee>()
+            {
+                new Employee { Id = Guid.NewGuid().ToString(), Name = "Петрова Анна",
+                    Description="Aнна - работник нашего салона красоты, обладает высокой квалификацией в области ухода за волосами и визажа. Она профессионально проводит различные процедуры: стрижки, окрашивание, мелирование, укладку и т.д. Анна также специализируется на создании свадебных причесок и макияжа, обладает хорошим вкусом и чутким отношением к клиентам.",
+                    ImageItem="1"},
+                new Employee { Id = Guid.NewGuid().ToString(), Name = "Иванова Валерия",
+                    Description="Валерия -  профессиональный мастер по маникюру и педикюру. Она имеет большой опыт работы в данной сфере и знает все современные техники и тенденции. Валерия очень вежливая и приятная в общении, всегда учитывает пожелания и требования клиентов. Она фокусируется на деталях, чтобы обеспечить высокое качество услуги и отличный результат. Валерия точно знает, какое оборудование и инструменты нужны для работы, а также как правильно обращаться с клиентами.",
+                    ImageItem="1"},
+                new Employee { Id = Guid.NewGuid().ToString(), Name = "Шибзухова Евгения",
+                    Description="Стоимость услуги: 450 р.",
+                    ImageItem="1"}
+            };
+        }
+
+
+
+        public Task<bool> AddItemAsync(Employee item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteItemAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Employee> GetItemAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Employee>> GetItemsAsync(bool forceRefresh = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateItemAsync(Employee item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

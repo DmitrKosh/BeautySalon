@@ -16,8 +16,10 @@ namespace Salon2.Data
             db = new SQLiteAsyncConnection(connectionString);
 
             db.CreateTableAsync<User>().Wait();
+            db.CreateTableAsync<Order>().Wait();
         }
 
+        #region User
         public Task<List<User>> GetUsersAsync() //получение всех пользователей
         {
             return db.Table<User>().ToListAsync();
@@ -53,5 +55,43 @@ namespace Salon2.Data
         {
             return db.DeleteAsync(user);
         }
+        #endregion
+
+        #region Order
+        public Task<List<Order>> GetOrdersAsync() //получение всех пользователей
+        {
+            return db.Table<Order>().ToListAsync();
+        }
+        public Task<Order> GetOrderAsyncId(int id) //по id
+        {
+            return db.Table<Order>()
+                .Where(i => i.ID == id)
+                .FirstOrDefaultAsync();
+        }
+
+        public Task<Order> GetOrderAsyncDate(DateTime? dateTime, int userId)
+        {
+            return db.Table<Order>()
+                .Where(i => i.DateTime == dateTime && i.UserId == userId)
+                .FirstOrDefaultAsync();
+        }
+
+        public Task<int> SaveOrderAsync(Order order) //сохранение данных пользователя
+        {
+            if (order.ID != 0)
+            {
+                return db.UpdateAsync(order);
+            }
+            else
+            {
+                return db.InsertAsync(order);
+            }
+        }
+
+        public Task<int> OrderUser(Order order)
+        {
+            return db.DeleteAsync(order);
+        }
+        #endregion
     }
 }

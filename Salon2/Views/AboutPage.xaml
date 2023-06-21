@@ -4,7 +4,7 @@
              x:Class="Salon2.Views.AboutPage"
              xmlns:vm="clr-namespace:Salon2.ViewModels"
              Title="{Binding Title}"
-             BackgroundColor="#004D51">
+             BackgroundColor="#086254">
     
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
@@ -32,11 +32,10 @@
             </Style>
 
             <Style x:Key="FrameInfoEmployee" TargetType="Frame">
-                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Margin" Value="5"/>
                 <Setter Property="BorderColor" Value="Black"/>
                 <Setter Property="CornerRadius" Value="15"/>
-                <Setter Property="BackgroundColor" Value="#FFE794"/>
-                <Setter Property="Background" Value="#FFE794"/>
+                <Setter Property="Background" Value="#FFF09B"/>
             </Style>
             <!--#endregion-->
         </ResourceDictionary>
@@ -49,7 +48,7 @@
     <Grid>
 
         <ScrollView>
-            <StackLayout BackgroundColor="#004D51" Orientation="Vertical" >
+            <StackLayout BackgroundColor="#078774" Orientation="Vertical" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -64,15 +63,15 @@
                     </Grid.ColumnDefinitions>
 
                     <!--#region фоновые картинки-->
-                    <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End" 
+                    <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End" Margin="35,3,7,0"
                            VerticalOptions="Start" Source="fon.png"/>
-                    <Image Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" HorizontalOptions="Start" 
+                    <Image Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" HorizontalOptions="Start" Margin="5,-15"
                            VerticalOptions="Start" Source="fon2.png"/>
                     <Image Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" HorizontalOptions="End" Source="fon3.png"/>
                     <!--#endregion-->
 
                     <!--#region Описание салона-->
-                    <Frame Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.8" HorizontalOptions="Fill" Padding="15" Style="{StaticResource FrameInfoBox}">
+                    <Frame Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.9" HorizontalOptions="Fill" Padding="10" Style="{StaticResource FrameInfoBox}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -84,7 +83,9 @@
                             <Label Grid.Row="1" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center" Text="Наши мастера — знатоки своего дела. Постоянные стажировки и повышение квалификации — неотъемлемая 
                                         составляющая нашего салона. У каждого мастера свой стиль, свой почерк. Из каталога наших работ Вы всегда подберете себе именно 
                                         то, что подходит именно Вам. По желанию воплотим Ваши задумки в реальность." />
-                            <Image Style="{StaticResource ImageEmployee}" Grid.Row="2" Source="original_55b5b0e.jpg"/>
+                            <Frame Grid.Row="2" Padding="0,2" BorderColor="Black">
+                                <Image Margin="0" Source="original_55b5b0e.jpg"/>
+                            </Frame>
                         </Grid>
                     </Frame>
                     <!--#endregion-->
@@ -95,7 +96,7 @@
                     <!--#endregion-->
 
                     <!--#region Работники-->
-                    <Frame Grid.Row="3" Grid.ColumnSpan="2" Opacity="0.8" Style="{StaticResource FrameInfoBox}">
+                    <Frame Grid.Row="3" Grid.ColumnSpan="2" Opacity="0.9" Style="{StaticResource FrameInfoBox}">
                         <Grid>
                             <StackLayout Orientation="Vertical">
                                 <Label Margin="0,20" TextColor="Black" Text="Наши сотрудники" HorizontalTextAlignment="Center" FontSize="Title"/>

@@ -7,7 +7,7 @@
              
              
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#005E63">
+             BackgroundColor="#086254">
 
     <ContentPage.BindingContext>
         <model:User/>
@@ -22,14 +22,6 @@
         <Style x:Key="labelRes" TargetType="Label">
             <Setter Property="TextColor" Value="White"/>
         </Style>
-        <!--<Style x:Key="ButtonRes" TargetType="Button">
-            <Setter Property="CornerRadius" Value="20"/>
-            <Setter Property="Background" Value="#9AFCD3"/>
-            <Setter Property="Margin" Value="10,5"/>
-            <Setter Property="BorderWidth" Value="1.5"/>
-            <Setter Property="BorderColor" Value="#006368"/>
-            <Setter Property="TextColor" Value="Black"/>
-        </Style>-->
         <Style x:Key="ButtonRes" TargetType="Button">
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="BorderColor" Value="Black"/>
@@ -45,65 +37,86 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <StackLayout>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="0.7*"/>
-                    <RowDefinition Height="0.7*"/>
-                    <RowDefinition Height="0.7*"/>
-                    <RowDefinition Height="0.7*"/>
-                    <RowDefinition Height="0.7*"/>
-                    <RowDefinition Height="0.7*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Button Text="&lt;--" Clicked="Button_Clicked_1" Style="{DynamicResource ButtonRes}" Background="#9AFCD3" Margin="10,25" CornerRadius="50"/>
+                    <Image Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="6" HorizontalOptions="End" Margin="-15,-35,0,0"
+                           VerticalOptions="Start" Source="fon.png"/>
+                    <!--<Image Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5" Grid.RowSpan="3" HorizontalOptions="Start" Margin="35,-15"
+                           VerticalOptions="Start" Source="fon2.png"/>-->
+                    
+                    
+                    <Button Text="&lt;--" Clicked="Button_Clicked_1" Style="{DynamicResource ButtonRes}" Background="#9AFCD3" Margin="10,25" CornerRadius="50"/>
 
-                <StackLayout Grid.Row="1" Style="{StaticResource StackLayoutStyle}">
-                    <Label Text="Введите логин"/>
-                    <Entry x:Name="LoginEntry" Text="{Binding Login}"/>
-                </StackLayout>
+                    <StackLayout Grid.Row="1" Style="{StaticResource StackLayoutStyle}">
+                        <Label Text="Введите логин" Margin="-20,0" TextColor="Black" FontAttributes="Bold" FontSize="16" />
+                        <Frame Margin="-30,-3" Padding="10,3" CornerRadius="20" BackgroundColor="#9AFCD3" BorderColor="Black">
+                            <Entry x:Name="LoginEntry" Text="{Binding Login}"/>
+                        </Frame>
+                    </StackLayout>
 
-                <StackLayout Grid.Row="2" Style="{StaticResource StackLayoutStyle}">
-                    <Label Text="Введите пароль"/>
-                    <Entry x:Name="PasswordEntry" Text="{Binding Password}"/>
-                </StackLayout>
+                    <StackLayout Margin="0,12" Grid.Row="2" Style="{StaticResource StackLayoutStyle}">
+                        <Label Text="Введите пароль" Margin="-20,0" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Frame Margin="-30,-3" Padding="10,3" CornerRadius="20" BackgroundColor="#9AFCD3" BorderColor="Black">
+                            <Entry x:Name="PasswordEntry" IsPassword="True" Text="{Binding Password}"/>
+                        </Frame>
+                    </StackLayout>
 
-                <StackLayout Grid.Row="3" Style="{StaticResource StackLayoutStyle}">
-                    <Label Text="Повторите пароль"/>
-                    <Entry x:Name="RepeatPasswordEntry"/>
-                </StackLayout>
+                    <StackLayout Margin="0,12" Grid.Row="3" Style="{StaticResource StackLayoutStyle}">
+                        <Label Text="Повторите пароль" Margin="-20,0" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Frame Margin="-30,-3" Padding="10,3" CornerRadius="20" BackgroundColor="#9AFCD3" BorderColor="Black">
+                            <Entry x:Name="RepeatPasswordEntry" IsPassword="True"/>
+                        </Frame>
+                    </StackLayout>
+                    <Label Text="" VerticalOptions="Center" Grid.Row="3" Grid.Column="4" HorizontalOptions="Center" FontSize="35"  x:Name="labelPassowrd" TextColor="Red"/>
 
-                <StackLayout Grid.Row="4" Style="{StaticResource StackLayoutStyle}">
-                    <Label Text="Введите ваше имя"/>
-                    <Entry x:Name="NameEntry" Text="{Binding Name}"/>
-                </StackLayout>
+                    <StackLayout Margin="0,12" Grid.Row="4" Style="{StaticResource StackLayoutStyle}">
+                        <Label Text="Введите ваше имя" Margin="-20,0" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Frame Margin="-30,-3" Padding="10,3" CornerRadius="20" BackgroundColor="#9AFCD3" BorderColor="Black">
+                            <Entry x:Name="NameEntry" Text="{Binding Name}"/>
+                        </Frame>
+                    </StackLayout>
 
-                <StackLayout Grid.Row="5" Style="{StaticResource StackLayoutStyle}">
-                    <Label Text="Введите вашу фамилию"/>
-                    <Entry x:Name="SurnameEntry" Text="{Binding Surname}"/>
-                </StackLayout>
+                    <StackLayout Margin="0,12" Grid.Row="5" Style="{StaticResource StackLayoutStyle}">
+                        <Label Text="Введите вашу фамилию" Margin="-20,0" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Frame Margin="-30,-3" Padding="10,3" CornerRadius="20" BackgroundColor="#9AFCD3" BorderColor="Black">
+                            <Entry x:Name="SurnameEntry" Text="{Binding Surname}"/>
+                        </Frame>
+                    </StackLayout>
 
-                <StackLayout Grid.Row="6" Style="{StaticResource StackLayoutStyle}">
-                    <Label Text="Введите номер телефона"/>
-                    <Entry x:Name="PhoneNumberEntry" Text="{Binding Phone}"/>
-                </StackLayout>
+                    <StackLayout Margin="0,12" Grid.Row="6" Style="{StaticResource StackLayoutStyle}">
+                        <Label Text="Введите номер телефона" Margin="-20,0" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        <Frame Margin="-30,-3" Padding="10,3" CornerRadius="20" BackgroundColor="#9AFCD3" BorderColor="Black">
+                            <Entry x:Name="PhoneNumberEntry" Text="{Binding Phone}"/>
+                        </Frame>
+                    </StackLayout>
 
-                <Button Text="Зарегистрироваться" BackgroundColor="#9AFCD3" Style="{StaticResource ButtonRes}"
-                    Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,30" Clicked="Button_Clicked"/>
+                    <Button  Text="Зарегистрироваться" BackgroundColor="#9AFCD3" Style="{StaticResource ButtonRes}"
+                    Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,20" Clicked="Button_Clicked"/>
 
-                <Label Text="-" Grid.Row="3" Grid.Column="4" HorizontalOptions="Center" x:Name="labelPassowrd" TextColor="Red"/>
+                    
 
-            </Grid>
-        </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using Salon2.Models;
+﻿using Salon2.Dto;
+using Salon2.Models;
 using Salon2.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -43,9 +44,6 @@ namespace Salon2.Views
             }
         }
 
-
-        
-
         public LoginPage()
         {
             InitializeComponent();
@@ -60,23 +58,25 @@ namespace Salon2.Views
 
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
-            string _loginText = login.Text;
-
-            string _passwordText = password.Text;
+            string loginText = login.Text;
+            string passwordText = password.Text;
 
             try
             {
-                User user = await App.UsersDB.GetUserAsyncLogin(_loginText, _passwordText);
+                User user = await App.UsersDB.GetUserAsyncLogin(loginText, passwordText);
                 BindingContext = user;
 
-                if (user.Login == _loginText & user.Password == _password & user.Login != null & user.Password != null)
+                if (user.Login == loginText & user.Password == passwordText & user.Login != null & user.Password != null)
                 {
                     await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+
+                    UserDto.IdUserDto = user.ID;
                 }
             }
             catch
             {
+                LbErrLogOrPas.Text = "Неверный пароль или логин";
             }
-        }
+}
     }
 }

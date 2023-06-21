@@ -90,13 +90,7 @@ namespace Salon2.Views
         public RegistrationPage()
         {
             InitializeComponent();
-            RegistrationCommand = new Command(RegistrationUser);
             BindingContext = new User();
-        }
-
-        private async void RegistrationUser()
-        {
-            
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -105,11 +99,9 @@ namespace Salon2.Views
             {
                 User user = (User)BindingContext;
                 
-
                 if (!string.IsNullOrWhiteSpace(user.Password) & !string.IsNullOrWhiteSpace(user.Login) & !string.IsNullOrWhiteSpace(user.Name) & !string.IsNullOrWhiteSpace(user.Surname) & !string.IsNullOrWhiteSpace(user.Phone) & user.Password == RepeatPasswordEntry.Text)
                 {
                     await App.UsersDB.SaveUserAsync(user);
-                    //await Shell.Current.GoToAsync("..");
                     await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
                 }
 
@@ -118,10 +110,6 @@ namespace Salon2.Views
                     labelPassowrd.Text = "!";
                     labelPassowrd.FontSize = 20;
                 }
-
-
-
-
             }
             catch { }
         }

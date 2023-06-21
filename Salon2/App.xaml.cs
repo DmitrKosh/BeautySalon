@@ -18,8 +18,7 @@ namespace Salon2
             {
                 if (usersDB == null)
                 {
-                    usersDB = new UsersDB(
-                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    usersDB = new UsersDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                         "DBColibri.db3"));
                 }
                 return usersDB;

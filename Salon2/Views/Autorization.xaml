@@ -26,7 +26,7 @@
 
 
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="#078774">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="3*"/>

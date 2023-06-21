@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              x:Class="Salon2.Views.LoginPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#005E63"
+             BackgroundColor="#086254"
              >
     
     <ContentPage.Resources>
@@ -39,6 +39,7 @@
                 <RowDefinition/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="0.4*"/>
+                <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="0.4*"/>
                 <RowDefinition Height="0.8*"/>
                 <RowDefinition Height="1*"/>
@@ -50,20 +51,43 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Image  Grid.Column="1" Grid.Row="1" 
+            <!--<Image  Grid.Column="1" Grid.Row="1" 
                     HorizontalOptions="Center" VerticalOptions="Fill" Source="logo5.png"/>
 
                 <Entry x:Name="login" Text="{Binding Login}" Placeholder="Логин" Grid.Row="2" Grid.Column="1"/>
 
-                <Label x:Name="passwordLabel" Grid.Row="3" Grid.Column="1"/>
-                <Entry x:Name="password" Text="{Binding Password}" Placeholder="пароль" Grid.Row="3" Grid.Column="1"/>
+                <Entry x:Name="password" Text="{Binding Password}" IsPassword="True" Placeholder="пароль" Grid.Row="3" Grid.Column="1"/>
 
 
             <Button Style="{StaticResource ButtonRes}" Clicked="Button_Clicked_1" Text="ВОЙТИ" 
                     CornerRadius="30" Margin="25,15,25,10" BackgroundColor="#43FFB1" Grid.Column="1" Grid.Row="4"/>
 
             <Button Style="{StaticResource ButtonRes}" Clicked="Button_Clicked" Text="Регистрация" 
-                    Margin="20,5,20,20" BackgroundColor="#9AFCD3" Grid.Column="1" Grid.Row="6"/>
+                    Margin="20,5,20,20" BackgroundColor="#9AFCD3" Grid.Column="1" Grid.Row="6"/>-->
+
+            <Image  Grid.Column="1" Grid.Row="1" 
+                    HorizontalOptions="Center" VerticalOptions="Fill" Source="logo5.png"/>
+            
+            <Frame Grid.Row="2" Grid.Column="1" Margin="-30,-3" Padding="10,3" CornerRadius="20" BackgroundColor="#9AFCD3" BorderColor="Black">
+                <Entry x:Name="login" Text="{Binding Login}" Placeholder="Логин" />
+            </Frame>
+            
+            <Frame Grid.Row="4" Grid.Column="1" Margin="-30,-3" Padding="10,3" CornerRadius="20" BackgroundColor="#9AFCD3" BorderColor="Black">
+                <Entry x:Name="password" Text="{Binding Password}" IsPassword="True" Placeholder="Пароль" Grid.Row="3" Grid.Column="1"/>
+            </Frame>
+
+
+            <Button Style="{StaticResource ButtonRes}" Clicked="Button_Clicked_1" Text="ВОЙТИ" 
+                    CornerRadius="30" Margin="25,15,25,10" BackgroundColor="#43FFB1" Grid.Column="1" Grid.Row="5"/>
+
+            <Label x:Name="LbErrLogOrPas" Grid.Column="1" Grid.Row="6" 
+                   HorizontalOptions="Center" FontSize="18" VerticalTextAlignment="Center" 
+                   TextTransform="Default" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" TextColor="Red" FontAttributes="Bold" MinimumWidthRequest="-1">
+                
+            </Label>
+            
+            <Button Style="{StaticResource ButtonRes}" Clicked="Button_Clicked" Text="Регистрация" 
+                    Margin="20,5,20,20" BackgroundColor="#9AFCD3" Grid.Column="1" Grid.Row="7"/>
 
         </Grid>
     </ContentPage.Content>

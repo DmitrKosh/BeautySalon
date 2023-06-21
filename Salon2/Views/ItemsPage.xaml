@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Salon2.ViewModels"  
              xmlns:model="clr-namespace:Salon2.Models"  
              x:Name="BrowseItemsPage"
-             BackgroundColor="#004D51">
+             BackgroundColor="#086254">
 
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.

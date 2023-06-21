@@ -74,22 +74,19 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>
     <FlyoutItem Title="Главная" Icon="icon_main_menu.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Каталог услуг" Icon="icon_checklist.png">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Бронирование услуг" Icon="icon_checklist.png">
-        <ShellContent Route="BookingServicePage" ContentTemplate="{DataTemplate local:BookingServicePage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Бронирование услуг2" Icon="icon_checklist.png">
-        <ShellContent Route="BookingServicePage2" ContentTemplate="{DataTemplate local:BookingServicePage2}" />
-    </FlyoutItem>
     <FlyoutItem Title="регистрация" Icon="icon_checklist.png">
         <ShellContent Route="RegistrationPage" ContentTemplate="{DataTemplate local:RegistrationPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Бронирование услуг4" Icon="icon_checklist.png">
+    <FlyoutItem Title="Бронирование услуг" Icon="icon_checklist.png">
         <ShellContent Route="Page1" ContentTemplate="{DataTemplate local:Page1}" />
     </FlyoutItem>
     
@@ -97,7 +94,5 @@
     <MenuItem Text="Выйти" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>
 
-    <TabBar>
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>
+    
 </Shell>
