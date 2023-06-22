@@ -97,37 +97,48 @@
                                CornerRadius="10" 
                                BackgroundColor="#9EFFD6" >
                                                 <Grid>
-                                                    <StackLayout>
-                                                        <Label Text="{Binding Path=UserId}" 
-                                           FontSize="Medium" 
-                                           TextColor="Black" 
-                                           Margin="10,0,5,0" 
-                                           HeightRequest="35" 
-                                           VerticalTextAlignment="Center"/>
-                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                                                            <Label Text="Дата:"
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <!--#region Master -->
+                                                    <StackLayout Grid.Row="0" Orientation="Horizontal">
+                                                        <Label Text="Мастер:"
                                             TextColor="Black" 
                                            FontSize="Medium" 
                                            HorizontalTextAlignment="Center"/>
-                                                            <Label Text="{Binding Path=MasterId}" 
+                                                        <Label Text="{Binding Path=MasterName}" 
                                            TextColor="Black" 
                                            FontSize="Medium" 
                                            HorizontalTextAlignment="End"/>
+                                                    </StackLayout>
+                                                    <!--#endregion-->
 
-                                                            <Label Text="время:" 
-                                           TextColor="Black" 
-                                           FontSize="Medium" 
-                                           HorizontalTextAlignment="End"/>
-                                                            <Label Text="{Binding Path=ServiceId}" 
-                                           TextColor="Black" 
-                                           FontSize="Medium" 
-                                           HorizontalTextAlignment="End"/>
-                                                            <Label Text="{Binding Path=DateTime}" 
-                                           TextColor="Black" 
-                                           FontSize="Medium" 
-                                           HorizontalTextAlignment="End"/>
 
-                                                        </StackLayout>
+                                                    <!--#region Services -->
+                                                    <StackLayout Orientation="Horizontal" Grid.Row="1">
+                                                        <Label Text="Услуга:" 
+                                           TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="End"/>
+                                                        <Label Text="{Binding Path=ServiceName}" 
+                                           TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="End"/>
+                                                    </StackLayout>
+                                                    <!--#endregion-->
+
+                                                    <StackLayout Orientation="Horizontal" Grid.Row="2">
+                                                        <Label Text="Время:" 
+                                           TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="End"/>
+                                                        <Label Text="{Binding Path=DateTime}" 
+                                           TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="End"/>
 
                                                     </StackLayout>
                                                 </Grid>

@@ -41,11 +41,25 @@ namespace Salon2.Views
             set { _masterId = value; OnPropertyChanged(); }
         }
 
+        private string _masterName;
+        public string MasterName
+        {
+            get { return _masterName; }
+            set { _masterName = value; OnPropertyChanged(); }
+        }
+
         private int _serviceId;
         public int ServiceId 
         { 
             get { return _serviceId; }
             set { _serviceId = value; OnPropertyChanged(); }
+        }
+
+        private string _serviceName;
+        private string ServiceName
+        {
+            get { return _serviceName; }
+            set { _serviceName = value; OnPropertyChanged(); }
         }
 
         private DateTime? _dateTime;
@@ -91,6 +105,36 @@ namespace Salon2.Views
         private async void PickerService_SelectedIndexChanged(object sender, EventArgs e)
         {
             ServiceId = PickerService.SelectedIndex;
+            switch (ServiceId)
+            {
+                case 0:
+                    ServiceName = "Стрижка женская с укладкой";
+                    break;
+                case 1:
+                    ServiceName = "Стрижка мужская";
+                    break;
+                case 2:
+                    ServiceName = "Стрижка детская до 5 лет";
+                    break;
+                case 3:
+                    ServiceName = "Окантовка челки";
+                    break;
+                case 4:
+                    ServiceName = "Укладка";
+                    break;
+                case 5:
+                    ServiceName = "Сложная укладка";
+                    break;
+                case 6:
+                    ServiceName = "Укладка детская(до 10 лет)";
+                    break;
+                case 7:
+                    ServiceName = "Мужская укладка на короткие волосы";
+                    break;
+                case 8:
+                    ServiceName = "Укладка на длинные волосы";
+                    break;
+            }
         }
 
         DateTime SelectedDateTime;
@@ -112,6 +156,18 @@ namespace Salon2.Views
         private async void Picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             MasterId = PickerEmployee.SelectedIndex;
+            switch (MasterId)
+            {
+                case 0:
+                    MasterName = "Петрова Анна";
+                    break;
+                case 1:
+                    MasterName = "Иванова Валерия";
+                    break;
+                case 2:
+                    MasterName = "Шибзухова Евгения";
+                    break;
+            }
             calendarDate = CalCulture.SelectedDate;
             if(calendarDate != null)
             {
@@ -407,15 +463,15 @@ namespace Salon2.Views
         {
             DateTime? dateTimes = SaveDateBut;
             Order order = new Order();
-            order.MasterId = MasterId;
-            order.ServiceId = ServiceId;
+            order.MasterName = MasterName;
+            order.ServiceName = ServiceName;
             order.UserId = UserID;
             order.DateTime = dateTimes;
             try
             {
                 Order order1 = (Order)BindingContext;
 
-                if (order.MasterId != null & order.ServiceId != null & order.UserId != null & order.DateTime != null)
+                if (order.MasterName != null & order.ServiceName != null & order.UserId != null & order.DateTime != null)
                 {
                     await App.UsersDB.SaveOrderAsync(order);
                 }

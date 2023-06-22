@@ -23,16 +23,11 @@ namespace Salon2.Views
 
         protected override async void OnAppearing()
         {
-            //var sadfg = new List<User>();
-            //sadfg = await App.UsersDB.GetUsersAsync();
-            //collectionView.ItemsSource = sadfg;
-
             var orders = new List<Order>();
             orders = await App.UsersDB.GetOrderAsyncIdUer(IdUser);
             collectionView.ItemsSource = orders;
 
             GetUser();
-            //GetDate();
 
             // Чтобы подгрузить данные
             base.OnAppearing();
@@ -47,12 +42,5 @@ namespace Salon2.Views
             NameUser.Text = user.Name + " " + user.Surname;
             PhoneUser.Text = user.Phone;
         }
-        
-        //private async void GetDate()
-        //{
-
-        //    collectionView.ItemsSource = await App.UsersDB.GetOrdersAsync();
-        //    base.OnAppearing();
-        //}
     }
 }
