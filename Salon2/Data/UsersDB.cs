@@ -76,6 +76,20 @@ namespace Salon2.Data
                 .FirstOrDefaultAsync();
         }
 
+        public Task<List<Order>> GetOrderAsyncIdUer(int userId)
+        {
+            return db.Table<Order>()
+                .Where(i => i.UserId == userId)
+                .ToListAsync();
+        }
+
+        public Task<Order> GetOrderAsyncIdUer1(int userId)
+        {
+            return db.Table<Order>()
+                .Where(i => i.UserId == userId)
+                .FirstOrDefaultAsync();
+        }
+
         public Task<int> SaveOrderAsync(Order order) //сохранение данных пользователя
         {
             if (order.ID != 0)

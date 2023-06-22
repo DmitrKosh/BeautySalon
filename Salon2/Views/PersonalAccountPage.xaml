@@ -72,16 +72,70 @@
                     <Frame Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource FrameEmployee}">
                         <StackLayout Orientation="Vertical">
                             <Label>Ваше имя</Label>
-                            <Entry></Entry>
+                            <Entry x:Name="NameUser"></Entry>
                             <Label>Ваш телефон</Label>
-                            <Entry></Entry>
+                            <Entry x:Name="PhoneUser"></Entry>
                         </StackLayout>
                     </Frame>
 
                     <Frame Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource FrameEmployee}">
                         <StackLayout Orientation="Vertical">
                             <Label HorizontalOptions="Center">Ваши записи</Label>
-                            <CollectionView></CollectionView>
+                            <CollectionView x:Name="collectionView">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Vertical"
+                                                       ItemSpacing="10">
+                                        
+                                    </LinearItemsLayout>
+                                    
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Frame BorderColor="Black" 
+                               Padding="5" 
+                               CornerRadius="10" 
+                               BackgroundColor="#9EFFD6" >
+                                                <Grid>
+                                                    <StackLayout>
+                                                        <Label Text="{Binding Path=UserId}" 
+                                           FontSize="Medium" 
+                                           TextColor="Black" 
+                                           Margin="10,0,5,0" 
+                                           HeightRequest="35" 
+                                           VerticalTextAlignment="Center"/>
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                            <Label Text="Дата:"
+                                            TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="Center"/>
+                                                            <Label Text="{Binding Path=MasterId}" 
+                                           TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="End"/>
+
+                                                            <Label Text="время:" 
+                                           TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="End"/>
+                                                            <Label Text="{Binding Path=ServiceId}" 
+                                           TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="End"/>
+                                                            <Label Text="{Binding Path=DateTime}" 
+                                           TextColor="Black" 
+                                           FontSize="Medium" 
+                                           HorizontalTextAlignment="End"/>
+
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                </Grid>
+                                            </Frame>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
                             
                         </StackLayout>
                     </Frame>
