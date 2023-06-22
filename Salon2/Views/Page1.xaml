@@ -99,7 +99,9 @@
                                        FontAttributes="Bold" 
                                        TextColor="Black"/>
                                 <ImageButton Grid.Column="1" Source="free_icon_refresh_1177530.png" HeightRequest="45" WidthRequest="45" 
-                                             HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="-15" CornerRadius="60"/>
+                                             HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                             Margin="-15" CornerRadius="60"
+                                             Clicked="Picker_SelectedIndexChanged"/>
                             </Grid>
                         </Frame>
 
