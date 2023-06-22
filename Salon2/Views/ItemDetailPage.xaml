@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Salon2.ViewModels" x:DataType="viewmodels:ItemDetailViewModel"
              x:Class="Salon2.Views.ItemDetailPage"
              Title="{Binding Title}"
              BackgroundColor="#086254">
@@ -23,7 +23,7 @@
                 <Setter Property="BorderColor" Value="Black"/>
                 <Setter Property="CornerRadius" Value="15"/>
                 <Setter Property="BackgroundColor" Value="#78FFC7"/>
-                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Margin" Value="5"/>
             </Style>
 
             <Style x:Key="FrameBox" TargetType="Frame">
@@ -43,6 +43,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 
@@ -52,8 +53,8 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        
-                        <Label Grid.Row="0" Text="Наименование" FontSize="Small" />
+
+                            <Label Grid.Row="0" Text="Наименование" FontSize="Medium" FontAttributes="Bold"/>
                         <Label Grid.Row="1" Text="{Binding Text}" FontSize="Medium"/>
                     </Grid>
                 </Frame>
@@ -65,13 +66,25 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <Label Grid.Row="0" Text="Описание услуги:" FontSize="Small" />
+                            <Label Grid.Row="0" Text="Стоимость услуги:" FontSize="Medium" FontAttributes="Bold"/>
                         <Label Grid.Row="1" Text="{Binding Description}" FontSize="Medium"/>
                     </Grid>
                 </Frame>
 
-                <Frame Grid.Row="2" BorderColor="Black" CornerRadius="15" Padding="0" Margin="5">
-                    <Image Source="Haircut_Process.jpg"/>
+                    <Frame Grid.Row="2" Style="{StaticResource FrameInfoBox}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Text="Описание услуги:" FontSize="Medium" FontAttributes="Bold"/>
+                            <Label Grid.Row="1" Text="{Binding FullDescription}" FontSize="Medium"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Grid.Row="3" BorderColor="Black" CornerRadius="15" Padding="0" Margin="5">
+                        <Image Source="{Binding ImageItem}"/>
                 </Frame>
             </Grid>
         </Frame>
